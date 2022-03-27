@@ -31,6 +31,7 @@ QStringList RadarConfig::RadarConfig::nonVolatileKeys =
 <<NON_VOLATILE_GZ_ENABLE_ALARM
 <<NON_VOLATILE_GZ_MODE
 <<NON_VOLATILE_GZ_TIMEOUT
+<<NON_VOLATILE_GZ_NOTIF_THRESHOLD
 <<NON_VOLATILE_NAV_DATA_LAST_HEADING
 <<NON_VOLATILE_NAV_DATA_LAST_LATITUDE
 <<NON_VOLATILE_NAV_DATA_LAST_LONGITUDE
@@ -91,6 +92,7 @@ bool RadarConfig::RadarConfig::createVar(const QString &key, const QVariant &val
 */
 void RadarConfig::RadarConfig::loadConfig()
 {
+    qDebug()<<Q_FUNC_INFO;
     //volatile
     volatileVar.insert(VOLATILE_GZ_CONFIRMED,true);
 
@@ -113,6 +115,7 @@ void RadarConfig::RadarConfig::loadConfig()
     volatileVar.insert(VOLATILE_RADAR_PARAMS_SCAN_DATA_SIDE_LOBE_SUPPRESSION,0);
     volatileVar.insert(VOLATILE_RADAR_PARAMS_SCAN_DATA_LOCAL_INTERFERENCE,0);
     volatileVar.insert(VOLATILE_RADAR_PARAMS_RANGE_DATA_RANGE,0);
+    volatileVar.insert(VOLATILE_RADAR_STATUS,RADAR_OFF);
 
     /*non volatile*/
     QSettings config(filePath,QSettings::IniFormat);
@@ -129,6 +132,7 @@ void RadarConfig::RadarConfig::loadConfig()
 }
 void RadarConfig::RadarConfig::initConfig()
 {
+    qDebug()<<Q_FUNC_INFO;
     //non volatile
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_RING,false);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_HEADING_UP,false);
@@ -168,8 +172,10 @@ void RadarConfig::RadarConfig::initConfig()
 
 }
 
-void RadarConfig::RadarConfig::saveConfig()
+void RadarConfig::RadarConfig::saveConfig() const
 {
+    qDebug()<<Q_FUNC_INFO<<filePath;
+
     QSettings config(filePath,QSettings::IniFormat);
     QMapIterator<QString, QVariant>i(nonVolatileVar);
 
