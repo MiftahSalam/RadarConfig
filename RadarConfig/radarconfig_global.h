@@ -5,11 +5,11 @@
 #include <QDebug>
 #include <math.h>
 
-#if defined(RADARCONFIG_LIBRARY)
-#  define RADARCONFIGSHARED_EXPORT Q_DECL_EXPORT
-#else
-#  define RADARCONFIGSHARED_EXPORT Q_DECL_IMPORT
-#endif
+//#if defined(RADARCONFIG_LIBRARY)
+//#  define RADARCONFIGSHARED_EXPORT Q_DECL_EXPORT
+//#else
+//#  define RADARCONFIGSHARED_EXPORT Q_DECL_IMPORT
+//#endif
 
 
 #ifndef UINT8
