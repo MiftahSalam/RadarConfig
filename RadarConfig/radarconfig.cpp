@@ -77,19 +77,7 @@ QVariant RadarConfig::RadarConfig::getConfig(const QString &key) const
 
     return val;
 }
-/*
-bool RadarConfig::RadarConfig::createVar(const QString &key, const QVariant &value, bool nonVolatile)
-{
-    bool valid = !volatileVar.contains(key) && !nonVolatileVar.contains(key);
-    if(valid)
-    {
-        if(nonVolatile) nonVolatileVar.insert(key,value);
-        else volatileVar.insert(key,value);
-    }
 
-    return valid;
-}
-*/
 void RadarConfig::RadarConfig::loadConfig()
 {
     qDebug()<<Q_FUNC_INFO;
@@ -115,7 +103,7 @@ void RadarConfig::RadarConfig::loadConfig()
     volatileVar.insert(VOLATILE_RADAR_PARAMS_SCAN_DATA_SIDE_LOBE_SUPPRESSION,0);
     volatileVar.insert(VOLATILE_RADAR_PARAMS_SCAN_DATA_LOCAL_INTERFERENCE,0);
     volatileVar.insert(VOLATILE_RADAR_PARAMS_RANGE_DATA_RANGE,0);
-    volatileVar.insert(VOLATILE_RADAR_STATUS,RADAR_OFF);
+    volatileVar.insert(VOLATILE_RADAR_STATUS,0);
 
     /*non volatile*/
     QSettings config(filePath,QSettings::IniFormat);

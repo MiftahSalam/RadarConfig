@@ -65,23 +65,13 @@ const QString VOLATILE_RADAR_PARAMS_SCAN_DATA_LOCAL_INTERFERENCE = "Radar/params
 const QString VOLATILE_RADAR_PARAMS_RANGE_DATA_RANGE = "Radar/params/range/data/range";
 const QString VOLATILE_RADAR_STATUS = "Radar/STATUS";
 
-
-enum RadarState
-{
-    RADAR_OFF,
-    RADAR_STANDBY,
-    RADAR_TRANSMIT,
-    RADAR_WAKING_UP
-};
-
-class /*RADARCONFIGSHARED_EXPORT*/ RadarConfig
+class RadarConfig
 {
 public:
     RadarConfig(RadarConfig& other) = delete;
     void operator=(const RadarConfig&) = delete;
 
     static RadarConfig* getInstance(const QString &path);
-//    bool createVar(const QString& key, const QVariant& value, bool nonVolatile);
     bool setConfig(const QString& key, const QVariant& value);
     QVariant getConfig(const QString& key) const;
     void saveConfig() const;
