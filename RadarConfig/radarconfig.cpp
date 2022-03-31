@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QDir>
 #include <QSettings>
+#include <QDateTime>
 
 RadarConfig::RadarConfig* RadarConfig::RadarConfig::instance{nullptr};
 QStringList RadarConfig::RadarConfig::nonVolatileKeys =
@@ -32,6 +33,10 @@ QStringList RadarConfig::RadarConfig::nonVolatileKeys =
 <<NON_VOLATILE_GZ_MODE
 <<NON_VOLATILE_GZ_TIMEOUT
 <<NON_VOLATILE_GZ_NOTIF_THRESHOLD
+<<NON_VOLATILE_GZ_START_BEARING
+<<NON_VOLATILE_GZ_END_BEARING
+<<NON_VOLATILE_GZ_START_RANGE
+<<NON_VOLATILE_GZ_END_RANGE
 <<NON_VOLATILE_NAV_DATA_LAST_HEADING
 <<NON_VOLATILE_NAV_DATA_LAST_LATITUDE
 <<NON_VOLATILE_NAV_DATA_LAST_LONGITUDE
@@ -39,7 +44,7 @@ QStringList RadarConfig::RadarConfig::nonVolatileKeys =
 <<NON_VOLATILE_NAV_CONTROL_HEADING_AUTO
                       ;
 
-RadarConfig::RadarConfig::RadarConfig(QString path):filePath(path)
+RadarConfig::RadarConfig::RadarConfig(QObject *parent, QString path): QObject (parent), filePath(path)
 {
     QFile file(filePath);
     if(filePath.isEmpty() || !file.exists())
@@ -66,6 +71,7 @@ bool RadarConfig::RadarConfig::setConfig(const QString &key, const QVariant &val
         nonVolatileVar.insert(key,value);
     }
 
+    emit configValueChange(key,value);
     return valid;
 }
 
@@ -83,6 +89,7 @@ void RadarConfig::RadarConfig::loadConfig()
     qDebug()<<Q_FUNC_INFO;
     //volatile
     volatileVar.insert(VOLATILE_GZ_CONFIRMED,true);
+    volatileVar.insert(VOLATILE_GZ_TIME,QDateTime::currentMSecsSinceEpoch());
 
     volatileVar.insert(VOLATILE_RADAR_PARAMS_FILTER_DATA_GAIN,0);
     volatileVar.insert(VOLATILE_RADAR_PARAMS_FILTER_DATA_RAIN,0);
@@ -104,6 +111,7 @@ void RadarConfig::RadarConfig::loadConfig()
     volatileVar.insert(VOLATILE_RADAR_PARAMS_SCAN_DATA_LOCAL_INTERFERENCE,0);
     volatileVar.insert(VOLATILE_RADAR_PARAMS_RANGE_DATA_RANGE,0);
     volatileVar.insert(VOLATILE_RADAR_STATUS,0);
+    volatileVar.insert(VOLATILE_RADAR_WAKINGUP_TIME,0);
 
     /*non volatile*/
     QSettings config(filePath,QSettings::IniFormat);
@@ -151,6 +159,10 @@ void RadarConfig::RadarConfig::initConfig()
     nonVolatileVar.insert(NON_VOLATILE_GZ_MODE,0); //arc mode
     nonVolatileVar.insert(NON_VOLATILE_GZ_NOTIF_THRESHOLD,10);
     nonVolatileVar.insert(NON_VOLATILE_GZ_TIMEOUT,90);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_START_BEARING,70);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_END_BEARING,120);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_START_RANGE,2000);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_END_RANGE,4200);
 
     nonVolatileVar.insert(NON_VOLATILE_NAV_DATA_LAST_HEADING,0.0);
     nonVolatileVar.insert(NON_VOLATILE_NAV_DATA_LAST_LATITUDE,0.0);
@@ -180,7 +192,7 @@ RadarConfig::RadarConfig::~RadarConfig()
 }
 RadarConfig::RadarConfig* RadarConfig::RadarConfig::getInstance(const QString& path )
 {
-    if(instance == nullptr) instance = new RadarConfig(path);
+    if(instance == nullptr) instance = new RadarConfig(nullptr, path);
     else
     {
         if(instance->filePath != path && !path.isEmpty()) return nullptr;

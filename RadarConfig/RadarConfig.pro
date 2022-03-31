@@ -8,6 +8,7 @@ QT       -= gui
 
 TARGET = RadarConfig
 TEMPLATE = lib
+CONFIG += staticlib
 
 DEFINES += RADARCONFIG_LIBRARY
 

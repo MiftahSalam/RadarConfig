@@ -3,6 +3,7 @@
 
 #include "radarconfig_global.h"
 #include <QVariant>
+#include <QObject>
 
 namespace RadarConfig {
 
@@ -35,6 +36,10 @@ const QString NON_VOLATILE_GZ_ENABLE_ALARM = "GZ/enable_alarm";
 const QString NON_VOLATILE_GZ_MODE = "GZ/mode";
 const QString NON_VOLATILE_GZ_NOTIF_THRESHOLD = "GZ/notif_threshold";
 const QString NON_VOLATILE_GZ_TIMEOUT = "GZ/timeout";
+const QString NON_VOLATILE_GZ_START_BEARING = "GZ/start_bearing";
+const QString NON_VOLATILE_GZ_END_BEARING = "GZ/end_bearing";
+const QString NON_VOLATILE_GZ_START_RANGE = "GZ/start_range";
+const QString NON_VOLATILE_GZ_END_RANGE = "GZ/end_range";
 
 const QString NON_VOLATILE_NAV_DATA_LAST_HEADING = "Nav/data/last_heading";
 const QString NON_VOLATILE_NAV_DATA_LAST_LATITUDE = "Nav/data/last_lat";
@@ -43,6 +48,7 @@ const QString NON_VOLATILE_NAV_CONTROL_GPS_AUTO = "Nav/control/gps_auto";
 const QString NON_VOLATILE_NAV_CONTROL_HEADING_AUTO = "Nav/control/heading_auto";
 
 const QString VOLATILE_GZ_CONFIRMED = "GZ/confirmed";
+const QString VOLATILE_GZ_TIME = "GZ/time";
 
 const QString VOLATILE_RADAR_PARAMS_FILTER_DATA_GAIN = "Radar/params/filter/data/gain";
 const QString VOLATILE_RADAR_PARAMS_FILTER_DATA_RAIN = "Radar/params/filter/data/rain";
@@ -64,9 +70,11 @@ const QString VOLATILE_RADAR_PARAMS_SCAN_DATA_SIDE_LOBE_SUPPRESSION = "Radar/par
 const QString VOLATILE_RADAR_PARAMS_SCAN_DATA_LOCAL_INTERFERENCE = "Radar/params/scan/data/local_interference_rejection";
 const QString VOLATILE_RADAR_PARAMS_RANGE_DATA_RANGE = "Radar/params/range/data/range";
 const QString VOLATILE_RADAR_STATUS = "Radar/STATUS";
+const QString VOLATILE_RADAR_WAKINGUP_TIME = "Radar/WAKINGUP_TIME";
 
-class RadarConfig
+class RadarConfig: public QObject
 {
+    Q_OBJECT
 public:
     RadarConfig(RadarConfig& other) = delete;
     void operator=(const RadarConfig&) = delete;
@@ -76,8 +84,11 @@ public:
     QVariant getConfig(const QString& key) const;
     void saveConfig() const;
 
+signals:
+    void configValueChange(QString key, QVariant value);
+
 protected:
-    RadarConfig(QString path="");
+    RadarConfig(QObject *parent=nullptr, QString path="");
     ~RadarConfig();
 
 private:
