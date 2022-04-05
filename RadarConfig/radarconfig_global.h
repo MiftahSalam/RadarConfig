@@ -44,6 +44,7 @@
 #define rad2deg(x) ((x)*360.0 / (2 * PI))
 #endif
 
+#define RING_COUNT (5)
 #define WATCHDOG_TIMEOUT (10000)  // After 10s assume GPS and heading data is invalid
 #define TIMED_OUT(t, timeout) (t >= timeout)
 
