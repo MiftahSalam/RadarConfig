@@ -8,7 +8,7 @@
 namespace RadarConfig {
 
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_RING = "PPI/Display/show_ring";
-const QString NON_VOLATILE_PPI_DISPLAY_SHOW_COMPASS = "PPI/Display/heading_up";
+const QString NON_VOLATILE_PPI_DISPLAY_SHOW_COMPASS = "PPI/Display/show_compass";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_HEADING_MARKER = "PPI/Display/show_heading_marker";
 const QString NON_VOLATILE_PPI_DISPLAY_HEADING_UP = "PPI/Display/heading_up";
 const QString NON_VOLATILE_PPI_DISPLAY_LAST_SCALE = "PPI/Display/last_scale";
@@ -29,8 +29,7 @@ const QString NON_VOLATILE_ARPA_PARAMS_SEARCH_RADIUS1 = "Arpa/params/search_radi
 const QString NON_VOLATILE_ARPA_PARAMS_SEARCH_RADIUS2 = "Arpa/params/search_radius2";
 const QString NON_VOLATILE_ARPA_PARAMS_MAX_TARGET_SIZE = "Arpa/params/max_target_size";
 const QString NON_VOLATILE_ARPA_CONTROL_CREATE_ARPA_BY_CLICK = "Arpa/control/create_arpa_by_click";
-const QString NON_VOLATILE_ARPA_NET_IP_SEND = "Arpa/net/ip_send";
-const QString NON_VOLATILE_ARPA_NET_PORT_SEND = "Arpa/net/port_send";
+const QString NON_VOLATILE_ARPA_NET_CONFIG = "Arpa/net/config";
 
 const QString NON_VOLATILE_GZ_ENABLE_ALARM = "GZ/enable_alarm";
 const QString NON_VOLATILE_GZ_MODE = "GZ/mode";
@@ -46,6 +45,7 @@ const QString NON_VOLATILE_NAV_DATA_LAST_LATITUDE = "Nav/data/last_lat";
 const QString NON_VOLATILE_NAV_DATA_LAST_LONGITUDE = "Nav/data/last_lon";
 const QString NON_VOLATILE_NAV_CONTROL_GPS_AUTO = "Nav/control/gps_auto";
 const QString NON_VOLATILE_NAV_CONTROL_HEADING_AUTO = "Nav/control/heading_auto";
+const QString NON_VOLATILE_NAV_NET_CONFIG = "Nav/net/config";
 
 const QString VOLATILE_GZ_CONFIRMED = "GZ/confirmed";
 const QString VOLATILE_GZ_TIME = "GZ/time";
