@@ -14,6 +14,7 @@ QStringList RadarConfig::RadarConfig::nonVolatileKeys =
                   <<NON_VOLATILE_PPI_DISPLAY_LAST_SCALE
                  <<NON_VOLATILE_PPI_DISPLAY_SHOW_GZ
                 <<NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA
+               <<NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP
                <<NON_VOLATILE_RADAR_NET_IP_DATA
               <<NON_VOLATILE_RADAR_NET_IP_REPORT
              <<NON_VOLATILE_RADAR_NET_IP_CMD
@@ -146,7 +147,8 @@ void RadarConfig::RadarConfig::initConfig()
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_HEADING_MARKER,true);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_LAST_SCALE,2000);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_GZ,true);
-    nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA,true);    
+    nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP,false);
+    nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA,true);
 
     nonVolatileVar.insert(NON_VOLATILE_RADAR_NET_IP_DATA,"127.0.0.1");
     nonVolatileVar.insert(NON_VOLATILE_RADAR_NET_IP_REPORT,"127.0.0.1");

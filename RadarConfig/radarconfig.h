@@ -7,12 +7,13 @@
 
 namespace RadarConfig {
 
-const QString NON_VOLATILE_PPI_DISPLAY_SHOW_RING = "PPI/Display/show_ring";
+const QString NON_VOLATILE_PPI_DISPLAY_SHOW_RING("PPI/Display/show_ring");
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_COMPASS = "PPI/Display/show_compass";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_HEADING_MARKER = "PPI/Display/show_heading_marker";
 const QString NON_VOLATILE_PPI_DISPLAY_HEADING_UP = "PPI/Display/heading_up";
 const QString NON_VOLATILE_PPI_DISPLAY_LAST_SCALE = "PPI/Display/last_scale";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_GZ = "PPI/Display/show_gz";
+const QString NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP = "PPI/Display/show_sweep";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA = "PPI/Display/show_arpa";
 
 const QString NON_VOLATILE_RADAR_NET_IP_DATA = "Radar/net/ip_data";
