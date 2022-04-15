@@ -157,7 +157,7 @@ void RadarConfig::RadarConfig::initConfig()
     nonVolatileVar.insert(NON_VOLATILE_RADAR_NET_PORT_REPORT,6133);
     nonVolatileVar.insert(NON_VOLATILE_RADAR_NET_PORT_CMD,6131);
     nonVolatileVar.insert(NON_VOLATILE_RADAR_TRAIL_ENABLE,true);
-    nonVolatileVar.insert(NON_VOLATILE_RADAR_TRAIL_TIME,15); //second
+    nonVolatileVar.insert(NON_VOLATILE_RADAR_TRAIL_TIME,0); //index
 
     nonVolatileVar.insert(NON_VOLATILE_ARPA_PARAMS_MIN_CONTOUR_LEN,90);
     nonVolatileVar.insert(NON_VOLATILE_ARPA_PARAMS_SEARCH_RADIUS1,10);
