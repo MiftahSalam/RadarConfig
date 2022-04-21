@@ -51,6 +51,8 @@ const QString NON_VOLATILE_NAV_NET_CONFIG = "Nav/net/config";
 const QString VOLATILE_GZ_CONFIRMED = "GZ/confirmed";
 const QString VOLATILE_GZ_TIME = "GZ/time";
 
+const QString VOLATILE_DISPLAY_PRESET_COLOR = "Radar/display/preset_color";
+
 const QString VOLATILE_RADAR_PARAMS_FILTER_DATA_GAIN = "Radar/params/filter/data/gain";
 const QString VOLATILE_RADAR_PARAMS_FILTER_DATA_RAIN = "Radar/params/filter/data/rain";
 const QString VOLATILE_RADAR_PARAMS_FILTER_DATA_SEA = "Radar/params/filter/data/sea";

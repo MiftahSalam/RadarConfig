@@ -92,6 +92,8 @@ void RadarConfig::RadarConfig::loadConfig()
     volatileVar.insert(VOLATILE_GZ_CONFIRMED,true);
     volatileVar.insert(VOLATILE_GZ_TIME,QDateTime::currentMSecsSinceEpoch());
 
+    volatileVar.insert(VOLATILE_DISPLAY_PRESET_COLOR,0); //display mode index (0 -> day, 1 -> night)
+
     volatileVar.insert(VOLATILE_RADAR_PARAMS_FILTER_DATA_GAIN,0);
     volatileVar.insert(VOLATILE_RADAR_PARAMS_FILTER_DATA_RAIN,0);
     volatileVar.insert(VOLATILE_RADAR_PARAMS_FILTER_DATA_SEA,0);
