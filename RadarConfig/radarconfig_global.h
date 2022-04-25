@@ -59,10 +59,10 @@
 
 // Use the above to convert from 'raw' headings sent by the radar (0..4095) into classical degrees
 // (0..359) and back
-#define SCALE_RAW_TO_DEGREES(raw) ((raw) * (double)DEGREES_PER_ROTATION / SPOKES)
-#define SCALE_RAW_TO_DEGREES2048(raw) ((raw) * (double)DEGREES_PER_ROTATION / LINES_PER_ROTATION)
-#define SCALE_DEGREES_TO_RAW(angle) ((int)((angle) * (double)SPOKES / DEGREES_PER_ROTATION))
-#define SCALE_DEGREES_TO_RAW2048(angle) ((int)((angle) * (double)LINES_PER_ROTATION / DEGREES_PER_ROTATION))
+#define SCALE_RAW_TO_DEGREES(raw) ((raw) * static_cast<double>(DEGREES_PER_ROTATION) / static_cast<double>(SPOKES))
+#define SCALE_RAW_TO_DEGREES2048(raw) ((raw) * static_cast<double>(DEGREES_PER_ROTATION) / static_cast<double>(LINES_PER_ROTATION))
+#define SCALE_DEGREES_TO_RAW(angle) (static_cast<int>((angle) * static_cast<double>(SPOKES) / static_cast<double>(DEGREES_PER_ROTATION)))
+#define SCALE_DEGREES_TO_RAW2048(angle) (static_cast<int>((angle) * static_cast<double>(LINES_PER_ROTATION) / static_cast<double>(DEGREES_PER_ROTATION)))
 #define MOD_DEGREES(angle) (fmod(angle + 2 * DEGREES_PER_ROTATION, DEGREES_PER_ROTATION))
 #define MOD_ROTATION(raw) (((raw) + 2 * SPOKES) % SPOKES)
 #define MOD_ROTATION2048(raw) (((raw) + 2 * LINES_PER_ROTATION) % LINES_PER_ROTATION)
