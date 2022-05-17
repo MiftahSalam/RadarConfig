@@ -15,6 +15,7 @@ const QString NON_VOLATILE_PPI_DISPLAY_LAST_SCALE = "PPI/Display/last_scale";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_GZ = "PPI/Display/show_gz";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP = "PPI/Display/show_sweep";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA = "PPI/Display/show_arpa";
+const QString NON_VOLATILE_PPI_DISPLAY_USE_OPENGL_SOFTWARE = "PPI/Display/use_opengl_software";
 
 const QString NON_VOLATILE_RADAR_NET_IP_DATA = "Radar/net/ip_data";
 const QString NON_VOLATILE_RADAR_NET_IP_REPORT = "Radar/net/ip_report";
