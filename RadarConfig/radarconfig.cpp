@@ -90,6 +90,9 @@ void RadarConfig::RadarConfig::loadConfig()
 {
     qDebug()<<Q_FUNC_INFO;
     //volatile
+    volatileVar.insert(VOLATILE_NAV_STATUS_GPS,0); //(0->offline, 1->no data, 2->data not valid, 3->data valid)
+    volatileVar.insert(VOLATILE_NAV_STATUS_HEADING,0); //(0->offline, 1->no data, 2->data not valid, 3->data valid)
+
     volatileVar.insert(VOLATILE_GZ_CONFIRMED,true);
     volatileVar.insert(VOLATILE_GZ_TIME,QDateTime::currentMSecsSinceEpoch());
 
