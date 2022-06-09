@@ -93,8 +93,8 @@ void RadarConfig::RadarConfig::loadConfig()
     volatileVar.insert(VOLATILE_NAV_STATUS_GPS,0); //(0->offline, 1->no data, 2->data not valid, 3->data valid)
     volatileVar.insert(VOLATILE_NAV_STATUS_HEADING,0); //(0->offline, 1->no data, 2->data not valid, 3->data valid)
 
-    volatileVar.insert(VOLATILE_GZ_CONFIRMED,true);
-    volatileVar.insert(VOLATILE_GZ_TIME,QDateTime::currentMSecsSinceEpoch());
+    volatileVar.insert(VOLATILE_GZ_CONFIRMED,false);
+    volatileVar.insert(VOLATILE_GZ_TIME,QDateTime::currentSecsSinceEpoch());
 
     volatileVar.insert(VOLATILE_DISPLAY_PRESET_COLOR,0); //display mode index (0 -> day, 1 -> night)
 
