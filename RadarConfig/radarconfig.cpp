@@ -13,6 +13,7 @@ QStringList RadarConfig::RadarConfig::nonVolatileKeys =
                   <<NON_VOLATILE_PPI_DISPLAY_HEADING_UP
                   <<NON_VOLATILE_PPI_DISPLAY_LAST_SCALE
                  <<NON_VOLATILE_PPI_DISPLAY_SHOW_GZ
+                <<NON_VOLATILE_PPI_DISPLAY_SHOW_GZ1
                 <<NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA
                <<NON_VOLATILE_PPI_DISPLAY_USE_OPENGL_SOFTWARE
                <<NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP
@@ -38,6 +39,14 @@ QStringList RadarConfig::RadarConfig::nonVolatileKeys =
 <<NON_VOLATILE_GZ_END_BEARING
 <<NON_VOLATILE_GZ_START_RANGE
 <<NON_VOLATILE_GZ_END_RANGE
+<<NON_VOLATILE_GZ_ENABLE_ALARM1
+<<NON_VOLATILE_GZ_MODE1
+<<NON_VOLATILE_GZ_TIMEOUT1
+<<NON_VOLATILE_GZ_NOTIF_THRESHOLD1
+<<NON_VOLATILE_GZ_START_BEARING1
+<<NON_VOLATILE_GZ_END_BEARING1
+<<NON_VOLATILE_GZ_START_RANGE1
+<<NON_VOLATILE_GZ_END_RANGE1
 <<NON_VOLATILE_NAV_DATA_LAST_HEADING
 <<NON_VOLATILE_NAV_DATA_LAST_LATITUDE
 <<NON_VOLATILE_NAV_DATA_LAST_LONGITUDE
@@ -96,6 +105,9 @@ void RadarConfig::RadarConfig::loadConfig()
     volatileVar.insert(VOLATILE_GZ_CONFIRMED,false);
     volatileVar.insert(VOLATILE_GZ_TIME,QDateTime::currentSecsSinceEpoch());
 
+    volatileVar.insert(VOLATILE_GZ_CONFIRMED1,false);
+    volatileVar.insert(VOLATILE_GZ_TIME1,QDateTime::currentSecsSinceEpoch());
+
     volatileVar.insert(VOLATILE_DISPLAY_PRESET_COLOR,0); //display mode index (0 -> day, 1 -> night)
 
     volatileVar.insert(VOLATILE_RADAR_PARAMS_FILTER_DATA_GAIN,0);
@@ -153,6 +165,7 @@ void RadarConfig::RadarConfig::initConfig()
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_HEADING_MARKER,true);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_LAST_SCALE,2000);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_GZ,true);
+    nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_GZ1,true);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP,false);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP,true);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA,true);
@@ -181,6 +194,15 @@ void RadarConfig::RadarConfig::initConfig()
     nonVolatileVar.insert(NON_VOLATILE_GZ_END_BEARING,120);
     nonVolatileVar.insert(NON_VOLATILE_GZ_START_RANGE,2000);
     nonVolatileVar.insert(NON_VOLATILE_GZ_END_RANGE,4200);
+
+    nonVolatileVar.insert(NON_VOLATILE_GZ_ENABLE_ALARM1,true);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_MODE1,0); //arc mode
+    nonVolatileVar.insert(NON_VOLATILE_GZ_NOTIF_THRESHOLD1,10);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_TIMEOUT1,90);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_START_BEARING1,20);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_END_BEARING1,100);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_START_RANGE1,1000);
+    nonVolatileVar.insert(NON_VOLATILE_GZ_END_RANGE1,2200);
 
     nonVolatileVar.insert(NON_VOLATILE_NAV_DATA_LAST_HEADING,0.0);
     nonVolatileVar.insert(NON_VOLATILE_NAV_DATA_LAST_LATITUDE,0.0);

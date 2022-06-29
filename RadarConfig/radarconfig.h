@@ -13,6 +13,7 @@ const QString NON_VOLATILE_PPI_DISPLAY_SHOW_HEADING_MARKER = "PPI/Display/show_h
 const QString NON_VOLATILE_PPI_DISPLAY_HEADING_UP = "PPI/Display/heading_up";
 const QString NON_VOLATILE_PPI_DISPLAY_LAST_SCALE = "PPI/Display/last_scale";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_GZ = "PPI/Display/show_gz";
+const QString NON_VOLATILE_PPI_DISPLAY_SHOW_GZ1 = "PPI/Display/show_gz1";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP = "PPI/Display/show_sweep";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA = "PPI/Display/show_arpa";
 const QString NON_VOLATILE_PPI_DISPLAY_USE_OPENGL_SOFTWARE = "PPI/Display/use_opengl_software";
@@ -42,6 +43,15 @@ const QString NON_VOLATILE_GZ_END_BEARING = "GZ/end_bearing";
 const QString NON_VOLATILE_GZ_START_RANGE = "GZ/start_range";
 const QString NON_VOLATILE_GZ_END_RANGE = "GZ/end_range";
 
+const QString NON_VOLATILE_GZ_ENABLE_ALARM1 = "GZ/enable_alarm1";
+const QString NON_VOLATILE_GZ_MODE1 = "GZ/mode1";
+const QString NON_VOLATILE_GZ_NOTIF_THRESHOLD1 = "GZ/notif_threshold1";
+const QString NON_VOLATILE_GZ_TIMEOUT1 = "GZ/timeout1";
+const QString NON_VOLATILE_GZ_START_BEARING1 = "GZ/start_bearing1";
+const QString NON_VOLATILE_GZ_END_BEARING1 = "GZ/end_bearing1";
+const QString NON_VOLATILE_GZ_START_RANGE1 = "GZ/start_range1";
+const QString NON_VOLATILE_GZ_END_RANGE1 = "GZ/end_range1";
+
 const QString NON_VOLATILE_NAV_DATA_LAST_HEADING = "Nav/data/last_heading";
 const QString NON_VOLATILE_NAV_DATA_LAST_LATITUDE = "Nav/data/last_lat";
 const QString NON_VOLATILE_NAV_DATA_LAST_LONGITUDE = "Nav/data/last_lon";
@@ -54,6 +64,9 @@ const QString VOLATILE_NAV_STATUS_GPS = "Nav/status/gps";
 
 const QString VOLATILE_GZ_CONFIRMED = "GZ/confirmed";
 const QString VOLATILE_GZ_TIME = "GZ/time";
+
+const QString VOLATILE_GZ_CONFIRMED1 = "GZ/confirmed1";
+const QString VOLATILE_GZ_TIME1 = "GZ/time1";
 
 const QString VOLATILE_DISPLAY_PRESET_COLOR = "Radar/display/preset_color";
 
@@ -96,7 +109,7 @@ signals:
 
 protected:
     RadarConfig(QObject *parent=nullptr, QString path="");
-    ~RadarConfig();
+    ~RadarConfig() override;
 
 private:
     void initConfig();
