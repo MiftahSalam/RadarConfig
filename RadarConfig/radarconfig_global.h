@@ -37,6 +37,10 @@
 #define PI (3.1415926535897931160E0)
 #endif
 
+#ifndef KM_TO_NM
+#define KM_TO_NM 0.539957
+#endif
+
 #ifndef deg2rad
 #define deg2rad(x) ((x)*2 * PI / 360.0)
 #endif
