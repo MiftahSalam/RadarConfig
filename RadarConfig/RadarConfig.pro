@@ -24,13 +24,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        radarconfig.cpp
+        $$PWD/radarconfig.cpp
 
-HEADERS += \
-        radarconfig.h \
-        radarconfig_global.h 
+HEADERS_BASE += \
+        $$PWD/radarconfig.h \
+        $$PWD/radarconfig_global.h
+
+HEADERS += $$HEADERS_BASE
 
 unix {
-    target.path = /usr/lib
+    header.files = $$HEADERS_BASE
+    header.path = /usr/include/RadarConfig/2022/v1
+    target.path = /usr/lib/RadarConfig/2022/v1/
+
+    INSTALLS += header
     INSTALLS += target
 }
