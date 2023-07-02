@@ -7,7 +7,8 @@
 
 RadarConfig::RadarConfig* RadarConfig::RadarConfig::instance{nullptr};
 QStringList RadarConfig::RadarConfig::nonVolatileKeys =
-        QStringList()<<NON_VOLATILE_PPI_DISPLAY_SHOW_RING
+        QStringList()<<NON_VOLATILE_PPI_DISPLAY_UNIT
+                     <<NON_VOLATILE_PPI_DISPLAY_SHOW_RING
                     <<NON_VOLATILE_PPI_DISPLAY_SHOW_COMPASS
                    <<NON_VOLATILE_PPI_DISPLAY_SHOW_HEADING_MARKER
                   <<NON_VOLATILE_PPI_DISPLAY_HEADING_UP
@@ -159,6 +160,7 @@ void RadarConfig::RadarConfig::initConfig()
 {
     qDebug()<<Q_FUNC_INFO;
     //non volatile
+    nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_UNIT,0); //0: metric, 1: nautical
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_RING,false);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_HEADING_UP,false);
     nonVolatileVar.insert(NON_VOLATILE_PPI_DISPLAY_SHOW_COMPASS,true);
