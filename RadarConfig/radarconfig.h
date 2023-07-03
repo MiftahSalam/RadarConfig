@@ -19,6 +19,12 @@ const QString NON_VOLATILE_PPI_DISPLAY_SHOW_SWEEP = "PPI/Display/show_sweep";
 const QString NON_VOLATILE_PPI_DISPLAY_SHOW_ARPA = "PPI/Display/show_arpa";
 const QString NON_VOLATILE_PPI_DISPLAY_USE_OPENGL_SOFTWARE = "PPI/Display/use_opengl_software";
 
+const QString NON_VOLATILE_PPI_DISPLAY_SHOW_EBL_MARKER = "PPI/Display/show_ebl";
+const QString NON_VOLATILE_RADAR_PARAMS_FILTER_DATA_EBL = "PPI/Data/ebl_treshold";
+const QString NON_VOLATILE_PPI_DISPLAY_SHOW_VRM_MARKER = "PPI/Display/show_vrm";
+const QString NON_VOLATILE_RADAR_PARAMS_FILTER_DATA_VRM = "PPI/Data/vrm_treshold";
+const QString NON_VOLATILE_RADAR_PARAMS_DATA_VALUE_VRM = "PPI/Data/vrm_value";
+
 const QString NON_VOLATILE_RADAR_NET_IP_DATA = "Radar/net/ip_data";
 const QString NON_VOLATILE_RADAR_NET_IP_REPORT = "Radar/net/ip_report";
 const QString NON_VOLATILE_RADAR_NET_IP_CMD = "Radar/net/ip_command";
@@ -70,6 +76,9 @@ const QString VOLATILE_GZ_CONFIRMED1 = "GZ/confirmed1";
 const QString VOLATILE_GZ_TIME1 = "GZ/time1";
 
 const QString VOLATILE_DISPLAY_PRESET_COLOR = "Radar/display/preset_color";
+
+const QString VOLATILE_PPI_ENABLE_OFF_CENTER("PPI/Display/enable_off_center");
+
 
 const QString VOLATILE_RADAR_PARAMS_FILTER_DATA_GAIN = "Radar/params/filter/data/gain";
 const QString VOLATILE_RADAR_PARAMS_FILTER_DATA_RAIN = "Radar/params/filter/data/rain";
